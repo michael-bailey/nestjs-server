@@ -1,13 +1,14 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
+import { NodeType } from 'nestjs-relay';
 
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@ObjectType()
+@NodeType()
 @Entity()
 export class User {
-	@Field(() => Int)
+	@Field(() => String)
 	@PrimaryGeneratedColumn('uuid')
-	id: number;
+	id: string;
 
 	@Field({ nullable: true })
 	@Column()
@@ -16,4 +17,7 @@ export class User {
 	@Field({ nullable: true })
 	@Column()
 	lastName?: string;
+
+	@Field()
+	aNumber?: number;
 }
