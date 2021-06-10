@@ -21,6 +21,9 @@
 		"test:e2e": "jest --config ./test/jest-e2e.json"
 	},
 	"dependencies": {
+		"@nestjs-query/core": "^0.27.0",
+		"@nestjs-query/query-graphql": "^0.27.0",
+		"@nestjs-query/query-typeorm": "^0.27.0",
 		"@nestjs/common": "^7.6.15",
 		"@nestjs/core": "^7.6.15",
 		"@nestjs/graphql": "^7.10.6",
@@ -31,8 +34,6 @@
 		"graphql-relay": "^0.7.0",
 		"graphql-tools": "^7.0.5",
 		"mysql": "^2.18.1",
-		"nestjs-graphql-relay": "^1.2.0",
-		"nestjs-relay": "^4.0.4",
 		"reflect-metadata": "^0.1.13",
 		"rimraf": "^3.0.2",
 		"rxjs": "^6.6.6",

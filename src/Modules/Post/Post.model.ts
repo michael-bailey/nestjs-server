@@ -1,13 +1,21 @@
-import { Field, Int } from '@nestjs/graphql';
-import { NodeType } from 'nestjs-relay';
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Field, ObjectType } from '@nestjs/graphql';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import {
+	IDField,
+	PagingStrategies,
+	QueryOptions,
+	Relation,
+} from '@nestjs-query/query-graphql';
+import { User } from '../Users/User.model';
 
-@NodeType()
+@ObjectType()
+@QueryOptions({ pagingStrategy: PagingStrategies.CURSOR })
+@Relation('owner', () => Post, { disableRemove: true })
 @Entity()
 export class Post {
-	@Field(() => Int)
+	@IDField(() => String)
 	@PrimaryGeneratedColumn('uuid')
-	id: number;
+	id!: string;
 
 	@Field()
 	@Column()
@@ -16,4 +24,7 @@ export class Post {
 	@Field()
 	@Column()
 	body!: string;
+
+	@ManyToOne(() => User)
+	owner?: Promise<User>;
 }

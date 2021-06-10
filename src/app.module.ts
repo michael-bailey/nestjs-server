@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { GlobalIdScalar } from 'nestjs-relay';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -29,6 +28,6 @@ import { UserModule } from './Modules/Users/User.module';
 		PostModule,
 	],
 	controllers: [AppController],
-	providers: [AppService, GlobalIdScalar],
+	providers: [AppService],
 })
 export class AppModule {}
