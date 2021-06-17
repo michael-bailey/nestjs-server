@@ -25,6 +25,15 @@ export class User {
 
 	@Field()
 	@Column()
+	userName!: string;
+
+	// Todo: add salt and hashing
+	@Field()
+	@Column()
+	passWord!: string;
+
+	@Field()
+	@Column()
 	firstName!: string;
 
 	@Field()

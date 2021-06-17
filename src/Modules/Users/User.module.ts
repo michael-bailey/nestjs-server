@@ -16,5 +16,6 @@ import { NestjsQueryTypeOrmModule } from '@nestjs-query/query-typeorm';
 	],
 	controllers: [UserController],
 	providers: [UserService],
+	exports: [UserService],
 })
 export class UserModule {}
