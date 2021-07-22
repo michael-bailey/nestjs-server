@@ -8,6 +8,7 @@ import { PostModule } from './Modules/Post/Post.module';
 import { UserModule } from './Modules/Users/User.module';
 import { AuthModule } from './Modules/auth/auth.module';
 import { AdminModule } from './Modules/admin/admin.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
 
 @Module({
 	imports: [
@@ -15,6 +16,9 @@ import { AdminModule } from './Modules/admin/admin.module';
 			autoSchemaFile: join(process.cwd(), 'src/schema.graphql'),
 			debug: false,
 			playground: true,
+		}),
+		ServeStaticModule.forRoot({
+			rootPath: join(__dirname, '..', 'public'),
 		}),
 		TypeOrmModule.forRoot({
 			type: 'mysql',
